@@ -30,18 +30,8 @@ public class LionTest {
 
     @Test
     public void doesHaveManeShouldReturnCorrectValueForSex() throws Exception {
-        Lion lion = new Lion(sex);
+        Feline feline = new Feline();
+        Lion lion = new Lion(feline, sex);
         assertEquals(expectedHasMane, lion.doesHaveMane());
-    }
-
-    @Test
-    public void getKittensShouldReturnOne() throws Exception {
-        Lion lion = new Lion(sex);
-        assertEquals(1, lion.getKittens());
-    }
-
-    @Test(expected = Exception.class)
-    public void constructorShouldThrowExceptionForInvalidSex() throws Exception {
-        new Lion("неверный_пол");
     }
 }

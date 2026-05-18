@@ -4,8 +4,13 @@ import java.util.List;
 
 public class Lion extends Feline {
     private final boolean hasMane;
+    private final Feline feline;
 
-    public Lion(String sex) throws Exception {
+
+    public Lion(Feline feline, String sex) throws Exception {
+        super();
+        this.feline = feline;
+
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -17,5 +22,14 @@ public class Lion extends Feline {
 
     public boolean doesHaveMane() {
         return hasMane;
+    }
+
+
+    public int getKittens() {
+        return feline.getKittens(); // делегируем feline
+    }
+
+    public List<String> getFood() throws Exception {
+        return feline.getFood("Хищник");
     }
 }
